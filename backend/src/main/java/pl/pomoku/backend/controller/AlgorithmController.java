@@ -6,22 +6,17 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import pl.pomoku.backend.algorithm.Partition;
-import pl.pomoku.backend.dto.request.HoarePartitionRequest;
-import pl.pomoku.backend.service.HoarePartitionService;
+import pl.pomoku.backend.dto.request.BFSRequest;
+import pl.pomoku.backend.service.BFSService;
 
 @RestController
 @RequestMapping("/api/v1/algorithm")
 @RequiredArgsConstructor
 public class AlgorithmController {
-    private final HoarePartitionService hoarePartitionService;
-    @PostMapping("/partition")
-    public ResponseEntity<?> partition(@RequestBody Integer[] arr) {
-        return ResponseEntity.ok(Partition.partition(arr));
-    }
+    private final BFSService bfsService;
 
-    @PostMapping("/hoare-partition")
-    public ResponseEntity<?> hoarePartition(@RequestBody HoarePartitionRequest request) {
-        return ResponseEntity.ok(hoarePartitionService.calculateOrGet(request));
+    @PostMapping("/bfs")
+    public ResponseEntity<?> bfs(@RequestBody BFSRequest request) {
+        return ResponseEntity.ok(bfsService.calculateOrGet(request));
     }
 }
