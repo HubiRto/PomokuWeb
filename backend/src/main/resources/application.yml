@@ -3,5 +3,10 @@ spring:
     url: jdbc:postgresql://localhost:5432/db
     username: user
     password: password
+    driver-class-name: org.postgresql.Driver
   jpa:
-    open-in-view: false
+#    open-in-view: false
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
