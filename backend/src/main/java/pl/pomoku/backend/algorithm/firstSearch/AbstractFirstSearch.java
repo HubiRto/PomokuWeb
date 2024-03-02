@@ -1,15 +1,16 @@
-package pl.pomoku.backend.algorithm.bfs;
+package pl.pomoku.backend.algorithm.firstSearch;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import pl.pomoku.backend.entity.BFSEntity;
+import pl.pomoku.backend.algorithm.firstSearch.result.AbstractFirstSearchResult;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.Deque;
+import java.util.List;
 
-@AllArgsConstructor
-@Data
-public class BreathFirstSearch {
-    private final Vertex startVertex;
+public abstract class AbstractFirstSearch<R extends AbstractFirstSearchResult> {
+    protected Deque<Vertex> collection;
+    protected Vertex startVertex;
+
     private static int maxQueueSize = 0;
     private static int treeHeight = 0;
     private static int internalCount = 0;
@@ -18,7 +19,7 @@ public class BreathFirstSearch {
     private static int inOperationsCount = 0;
     private static int visitOrder = 0;
 
-    public BreathFirstSearch(int[][] graph, int startIndex) {
+    public AbstractFirstSearch(int[][] graph, int startIndex) {
         List<Vertex> vertices = new ArrayList<>();
         for (int i = 0; i < graph.length; i++) {
             vertices.add(new Vertex(i));
@@ -35,19 +36,19 @@ public class BreathFirstSearch {
         this.startVertex = vertices.get(startIndex);
     }
 
-    public BFSEntity traverse() {
+    @SuppressWarnings("unchecked")
+    public R run() {
         List<Integer> traverse = new ArrayList<>();
-        Queue<Vertex> queue = new LinkedList<>();
         startVertex.setVisited(true);
         startVertex.setLevel(0);
         traverse.add(startVertex.getData());
-        queue.add(startVertex);
+        collection.add(startVertex);
         inOperationsCount++;
-        if (maxQueueSize < queue.size()) maxQueueSize = queue.size();
+        if (maxQueueSize < collection.size()) maxQueueSize = collection.size();
 
-        while (!queue.isEmpty()) {
-            Vertex current = queue.poll();
-            System.out.println(current);
+        while (!collection.isEmpty()) {
+            Vertex current = collection.poll();
+
             int currentLevel = current.getLevel();
             treeHeight = Math.max(treeHeight, currentLevel);
             outOperationsCount++;
@@ -64,20 +65,18 @@ public class BreathFirstSearch {
                 neighbor.setLevel(currentLevel + 1);
                 traverse.add(neighbor.getData());
                 neighbor.setVisitOrder(visitOrder++);
-                queue.add(neighbor);
+                collection.add(neighbor);
                 inOperationsCount++;
-                if (maxQueueSize < queue.size()) maxQueueSize = queue.size();
+                if (maxQueueSize < collection.size()) maxQueueSize = collection.size();
                 isInternal = true;
             }
-
             if (isInternal) {
                 internalCount++;
             } else {
                 externalCount++;
             }
         }
-
-        return BFSEntity.builder()
+        return buildResult(AbstractFirstSearchResult.builder()
                 .traverse(traverse)
                 .treeHeight(treeHeight)
                 .externalCount(externalCount)
@@ -85,6 +84,8 @@ public class BreathFirstSearch {
                 .inOperationsCount(inOperationsCount)
                 .outOperationsCount(outOperationsCount)
                 .maxQueueSize(maxQueueSize)
-                .build();
+                .build());
     }
+
+    protected abstract R buildResult(AbstractFirstSearchResult result);
 }

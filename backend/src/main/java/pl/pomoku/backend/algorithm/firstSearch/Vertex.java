@@ -1,4 +1,4 @@
-package pl.pomoku.backend.algorithm.bfs;
+package pl.pomoku.backend.algorithm.firstSearch;
 
 import lombok.Data;
 import lombok.ToString;
@@ -14,4 +14,8 @@ public class Vertex {
     private int visitOrder;
     @ToString.Exclude
     private List<Vertex> neighbors = new LinkedList<>();
+
+    public Vertex(int data) {
+        this.data = data;
+    }
 }
