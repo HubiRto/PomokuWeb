@@ -3,10 +3,7 @@ package pl.pomoku.backend.controller;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import pl.pomoku.backend.dto.request.LoginRequest;
 import pl.pomoku.backend.dto.request.RegisterRequest;
 import pl.pomoku.backend.dto.response.AuthenticationResponse;
@@ -25,5 +22,10 @@ public class AuthController {
     @PostMapping("/register")
     public ResponseEntity<?> register(@RequestBody RegisterRequest request) {
         return service.register(request);
+    }
+
+    @GetMapping(path = "confirm")
+    public String confirm(@RequestParam("token") String token) {
+        return service.confirmAccount(token);
     }
 }
