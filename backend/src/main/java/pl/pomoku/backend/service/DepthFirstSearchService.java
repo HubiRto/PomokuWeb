@@ -7,7 +7,7 @@ import pl.pomoku.backend.algorithm.firstSearch.BreathFirstSearch;
 import pl.pomoku.backend.algorithm.firstSearch.result.BreathFirstSearchResult;
 import pl.pomoku.backend.dto.request.FirstSearchRequest;
 import pl.pomoku.backend.dto.response.FirstSearchResponse;
-import pl.pomoku.backend.entity.DepthFirstSearchEntity;
+import pl.pomoku.backend.entity.algorithmEntity.DepthFirstSearchEntity;
 import pl.pomoku.backend.repository.DepthFirstSearchEntityRepository;
 import pl.pomoku.backend.utils.HashUtils;
 

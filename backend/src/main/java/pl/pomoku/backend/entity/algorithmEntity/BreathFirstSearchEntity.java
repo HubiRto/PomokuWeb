@@ -1,4 +1,4 @@
-package pl.pomoku.backend.entity;
+package pl.pomoku.backend.entity.algorithmEntity;
 
 import jakarta.persistence.Entity;
 
