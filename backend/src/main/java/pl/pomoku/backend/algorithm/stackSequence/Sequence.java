@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 public class Sequence {
     private Sequence sequence;
     private SequenceType sequenceType;
-    private int number;
+    private Integer number;
 
     public Sequence(SequenceType sequenceType, int number) {
         this.sequenceType = sequenceType;
