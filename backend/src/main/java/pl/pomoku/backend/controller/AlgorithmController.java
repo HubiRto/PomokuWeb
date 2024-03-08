@@ -6,11 +6,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import pl.pomoku.backend.dto.request.FirstSearchRequest;
 import pl.pomoku.backend.dto.request.StackSequenceRequest;
 import pl.pomoku.backend.service.BreathFirstSearchService;
 import pl.pomoku.backend.service.DepthFirstSearchService;
 import pl.pomoku.backend.service.StackSequenceService;
-import pl.pomoku.model.dto.request.FirstSearchRequest;
 
 @RestController
 @RequestMapping("/api/v1/algorithm")

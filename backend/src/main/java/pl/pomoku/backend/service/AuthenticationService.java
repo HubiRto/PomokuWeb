@@ -8,7 +8,9 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import pl.pomoku.backend.dto.request.LoginRequest;
 import pl.pomoku.backend.dto.request.RegisterRequest;
+import pl.pomoku.backend.dto.response.AuthenticationResponse;
 import pl.pomoku.backend.email.EmailSender;
 import pl.pomoku.backend.email.EmailValidator;
 import pl.pomoku.backend.entity.ConfirmationToken;
@@ -17,8 +19,6 @@ import pl.pomoku.backend.entity.User;
 import pl.pomoku.backend.exception.AppException;
 import pl.pomoku.backend.jwt.JwtService;
 import pl.pomoku.backend.repository.UserRepository;
-import pl.pomoku.model.dto.request.LoginRequest;
-import pl.pomoku.model.dto.response.AuthenticationResponse;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
