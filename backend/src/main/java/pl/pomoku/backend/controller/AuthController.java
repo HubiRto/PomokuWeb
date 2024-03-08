@@ -4,10 +4,10 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import pl.pomoku.backend.dto.request.LoginRequest;
 import pl.pomoku.backend.dto.request.RegisterRequest;
-import pl.pomoku.backend.dto.response.AuthenticationResponse;
 import pl.pomoku.backend.service.AuthenticationService;
+import pl.pomoku.model.dto.request.LoginRequest;
+import pl.pomoku.model.dto.response.AuthenticationResponse;
 
 @RestController
 @RequestMapping("/api/v1/auth")

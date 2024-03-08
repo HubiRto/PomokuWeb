@@ -1,0 +1,4 @@
+pl/pomoku/model/dto/request/LoginRequest.class
+pl/pomoku/model/dto/response/FirstSearchResponse.class
+pl/pomoku/model/dto/response/AuthenticationResponse.class
+pl/pomoku/model/dto/request/FirstSearchRequest.class

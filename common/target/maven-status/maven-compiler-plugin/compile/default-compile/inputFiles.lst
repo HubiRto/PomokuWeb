@@ -1,0 +1,4 @@
+/home/hubert/IdeaProjects/PomokuWeb/common/src/main/java/pl/pomoku/model/dto/request/LoginRequest.java
+/home/hubert/IdeaProjects/PomokuWeb/common/src/main/java/pl/pomoku/model/dto/response/AuthenticationResponse.java
+/home/hubert/IdeaProjects/PomokuWeb/common/src/main/java/pl/pomoku/model/dto/response/FirstSearchResponse.java
+/home/hubert/IdeaProjects/PomokuWeb/common/src/main/java/pl/pomoku/model/dto/request/FirstSearchRequest.java

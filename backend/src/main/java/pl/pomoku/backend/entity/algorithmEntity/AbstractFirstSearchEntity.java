@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Entity
@@ -13,11 +14,10 @@ import java.util.List;
 @NoArgsConstructor
 @Builder
 @Inheritance(strategy = InheritanceType.JOINED)
+@ToString
 public class AbstractFirstSearchEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-//    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "entity_sequence")
-//    @SequenceGenerator(name = "entity_sequence", sequenceName = "entity_sequence", allocationSize = 1)
     private Long id;
     private String hash;
     private int treeHeight;
@@ -26,6 +26,7 @@ public class AbstractFirstSearchEntity {
     private int externalCount;
     private int inOperationsCount;
     private int outOperationsCount;
-    @ElementCollection
+    @ElementCollection(fetch = FetchType.EAGER)
+    @Column(name = "traverse")
     private List<Integer> traverse = new ArrayList<>();
 }

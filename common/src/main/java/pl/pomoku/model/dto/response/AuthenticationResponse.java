@@ -1,4 +1,4 @@
-package pl.pomoku.backend.dto.response;
+package pl.pomoku.model.dto.response;
 
 public record AuthenticationResponse(String token) {
 }

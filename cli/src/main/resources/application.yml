@@ -1,0 +1,11 @@
+server:
+  port: 2137
+rest:
+  server:
+    url: https://pomokuweb-production.up.railway.app
+shell:
+  out:
+    info: CYAN
+    success: GREEN
+    warning: YELLOW
+    error: RED
